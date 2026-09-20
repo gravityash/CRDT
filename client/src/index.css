@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0b0f17;
+    color: #f3f4f6;
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(20, 26, 38, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s ease-in-out;
+}
+.glass-panel-hover:hover {
+  background: rgba(30, 38, 56, 0.85);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.3);
+}
+
+.electric-gradient-text {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #00f0ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.electric-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Grid Background for Whiteboard Canvas */
+.canvas-grid {
+  background-size: 24px 24px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f17;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2638;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}

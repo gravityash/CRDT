@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: collabsync_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: collabsync_server
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGO_URI=mongodb://mongodb:27017/collabsync
+      - JWT_SECRET=collabsync_super_secret_jwt_key_2026
+      - NODE_ENV=production
+    depends_on:
+      - mongodb
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: collabsync_client
+    ports:
+      - "3000:80"
+    depends_on:
+      - server
+
+volumes:
+  mongodb_data:
